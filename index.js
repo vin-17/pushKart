@@ -24,6 +24,7 @@ addButtonEl.addEventListener("click", function() {
 
 //sync data between client and database
 onValue(shoppingListInDB, function(snapshot) {
+    //there are items in the list
     if (snapshot.exists()) {
         //to turn the object into array
         let itemsArray = Object.entries(snapshot.val())
@@ -37,7 +38,7 @@ onValue(shoppingListInDB, function(snapshot) {
             
             appendItemToShoppingListEl(currentItem)
         }    
-    } 
+    } //there are no items in the list
     else {
         shoppingListEl.innerHTML = "No items here... yet"
     }
