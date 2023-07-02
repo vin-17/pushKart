@@ -17,6 +17,9 @@ const shoppingListEl = document.getElementById("shopping-list") //shop-list
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value
     //to push the input item into the database 
+    if (inputValue.trim() === '') {
+        return; // Do nothing if input is empty
+    }
     push(shoppingListInDB, inputValue)
     
     clearInputFieldEl()
@@ -72,3 +75,10 @@ function appendItemToShoppingListEl(item) {
     //placing it inside parent container
     shoppingListEl.append(newEl)
 }
+
+const but1 = document.getElementById("dark-mode")
+
+but1.addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+});
+
